@@ -1,14 +1,5 @@
 # CrossClassifier
-[![Build Status](https://travis-ci.org/mikel/mail.svg?branch=master)](https://travis-ci.org/mikel/mail)
 
-# Contents
-* [Introduction](#introduction)
-* [Simple Demo](#simple-demo)
-* [Documentation](#documentation)
-* [Note](#note)
-* [Contacts](#contacts)
-
-## Introduction
 This module tries to find the best learning algorithm for a given dataset in order to solve classification problems in the best way possible. 
 
 CrossClassifier takes a list, called clf_list, of learning algorithms and, in pairs, compared it such as:
@@ -25,6 +16,12 @@ By default, the list of learning algorithms consists of 6 algorithms:
 - KNeighborsClassifier(n_neighbors=11, weights="distance")
 
 However, the user can also pass a new list of algorithms if he does not want to use the default one.
+
+# Contents
+* [Simple Demo](#simple-demo)
+* [Documentation](#documentation)
+* [Note](#note)
+* [Contacts](#contacts)
 
 ## Simple Demo
 
