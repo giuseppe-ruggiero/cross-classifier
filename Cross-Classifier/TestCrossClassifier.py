@@ -7,7 +7,7 @@ from MetaClassificator import CrossClassifier
 data = load_digits()
 X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
 
-cross_class = CrossClassifier()
+cross_class = CrossClassifier([LogisticRegression(), KNeighborsClassifier(n_neighbors=11, weights="distance")])
 clf = cross_class.fit(X_train, y_train)
 y_ = clf.predict(X_test)
 
