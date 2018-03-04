@@ -19,8 +19,8 @@ However, the user can also pass a new list of algorithms if he does not want to 
 
 # Contents
 * [Simple Demo](#simple-demo)
-* [Documentation](#documentation)
 * [Note](#note)
+* [Documentation](#documentation)
 * [Contacts](#contacts)
 
 ## Simple Demo
@@ -45,13 +45,14 @@ best_clf = cross_class.fit(X_train, y_train)
 y_ = clf.predict(X_test)
 print("Accuracy %s: " %accuracy_score(y_test, y_))
 ```
-## Documentation
-More information can be found on the [Scikit-learn supervised learning](http://scikit-learn.org/stable/supervised_learning.html#supervised-learning) and on the [T-student test.](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.ttest_ind.html)
 
 ## Note
 Choose your learning algorithms carefully because some of them could take a lot of time on certain types of datasets (e.g. SVC on breast_cancer dataset). 
 
 The training set passed into the fit method must already be processed and ready for use.
+
+## Documentation
+More information can be found on the [Scikit-learn supervised learning](http://scikit-learn.org/stable/supervised_learning.html#supervised-learning) and on the [T-student test.](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.ttest_ind.html)
 
 ## Contacts
 For more information or for any problem please do not hesitate to contact me at giuseppe.ruggiero95@yahoo.it
