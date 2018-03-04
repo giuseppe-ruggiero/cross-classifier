@@ -47,3 +47,6 @@ print("Accuracy %s: " %accuracy_score(y_test, y_))
 Choose your learning algorithms carefully because some of them could take a lot of time on certain types of datasets (e.g. SVC on breast_cancer dataset). 
 
 The training set passed into the fit method must already be processed and ready for use.
+
+## Contacts
+For more information or for any problem please do not hesitate to contact me at giuseppe.ruggiero95@yahoo.it
