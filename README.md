@@ -1,1 +1,1 @@
-# cross-classifier
+# CrossClassifier
