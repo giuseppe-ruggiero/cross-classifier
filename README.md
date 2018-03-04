@@ -20,8 +20,8 @@ However, the user can also pass a new list of algorithms if he does not want to 
 
 # Contents
 * [Documentation](dDocumentation)
-* [Simple Demo](#simple Demo)
-* [Note](#Note)
+* [Simple Demo](#simple-demo)
+* [Note](#note)
 * [Contacts](#contacts)
 
 ## Documentation
