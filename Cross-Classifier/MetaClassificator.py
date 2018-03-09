@@ -28,17 +28,22 @@ from sklearn.neighbors import *
 
 warnings.filterwarnings("ignore")
 
+
 class ListEmptyException(Exception):
     pass
+
 
 class ListLenException(Exception):
     pass
 
+
 class InvalidListItems(Exception):
     pass
 
+
 class InvalidParameter(Exception):
     pass
+
 
 class CrossClassifier:
     """
@@ -68,9 +73,10 @@ class CrossClassifier:
     >>> from MetaClassificator import CrossClassifier
     >>> from sklearn.metrics import accuracy_score
     >>> data = load_digits()
-    >>> X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
     >>> cross_class = CrossClassifier([LogisticRegression(), KNeighborsClassifier(n_neighbors=11, weights="distance")])
-    >>> clf = cross_class.fit(X_train, y_train)
+    >>> clf = cross_class.fit(data.data, data.target)
+    >>> X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
+    >>> clf.fit(X_train, y_train)
     >>> y_ = clf.predict(X_test)
     >>> print("Accuracy %s: " %accuracy_score(y_test, y_))
     Start comparison between LogisticRegression and KNeighborsClassifier
@@ -105,8 +111,8 @@ class CrossClassifier:
                                        "(linear_model, svm, naive_bayes, neighbors, ensemble, tree, gaussian_process, "
                                        "neural_network, discriminant_analysis)")
 
-    def fit(self, X, y):
-        """Find the best learning algorithm and fit it according to X, y.
+    def find_best_model(self, X, y):
+        """Find the best learning algorithm according to X, y.
 
         Note : X must already be processed and ready for use.
 
@@ -122,10 +128,9 @@ class CrossClassifier:
         Returns
         -------
         clf : object
-            Returns the best learning algorithm fitted.
+            Returns the best learning algorithm for X.
         """
         clf = self.__test_model(X, y)
-        clf.fit(X, y)
         return clf
 
     @staticmethod
@@ -165,7 +170,7 @@ class CrossClassifier:
     def __test_model(self, X, y):
         """Private method.
 
-        fit support method to find the best learning algorithm.
+        find_best_model support method to find the best learning algorithm.
 
         Parameters
         ----------
@@ -276,6 +281,8 @@ class CrossClassifier:
         "equal_var" of stats.ttest_ind() is set to false because we don't want to
         assume equal population variance. The p-value is used to accept or reject
         the null hypothesis that the two algorithms have the same performance.
+        If the null hypothesis is not rejected, it means that both algorithms
+        are good in solving the task. However, the slightly better one is chosen.
 
         See https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.ttest_ind.html for complete documentation.
 

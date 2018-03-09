@@ -5,10 +5,12 @@ from sklearn.model_selection import train_test_split
 from MetaClassificator import CrossClassifier
 
 data = load_digits()
-X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
 
-cross_class = CrossClassifier([LogisticRegression(), KNeighborsClassifier(n_neighbors=11, weights="distance")])
-clf = cross_class.fit(X_train, y_train)
+cross_class = CrossClassifier()
+clf = cross_class.find_best_model(data.data, data.target)
+
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3)
+clf.fit(X_train, y_train)
 y_ = clf.predict(X_test)
 
 accuracy = accuracy_score(y_test, y_)
